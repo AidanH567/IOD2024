@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+.container {
+  display: flex;
+  min-height: 100vh;
+  align-items: stretch;
+}
+.column {
+  background: goldenrod;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+button {
+  width: 300px;
+  height: 100px;
+  font-size: larger;
+  background-color: red;
+}
+.inputC {
+  height: 50px;
+  width: 400px;
+  font-size: larger;
+}
