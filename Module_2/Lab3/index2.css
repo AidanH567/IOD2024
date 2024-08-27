@@ -65,14 +65,17 @@ a {
   justify-content: center;
   align-items: center;
 }
+/* Question 4 */
 .flex-space-between {
   justify-content: space-between;
 }
+/* Question 5*/
 .flex-basis-item-50,
 .flex-wrap {
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   flex-basis: 25%;
 }
+/* Question 7*/
 .flex-menu {
   display: flex;
   flex-direction: row;

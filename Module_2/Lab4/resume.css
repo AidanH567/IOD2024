@@ -21,14 +21,10 @@
 #aside1 {
   display: inline-block;
   width: 600px;
-  border-style: solid;
-  border-color: grey;
 }
 #summary1 {
   display: inline-block;
   width: auto;
-  border-style: solid;
-  border-color: grey;
 }
 #entireSite {
   display: flex;
@@ -46,7 +42,6 @@ h2 {
   color: #60bcee;
 }
 #skillList {
-  text-align: center;
 }
 body {
   margin: 0;
