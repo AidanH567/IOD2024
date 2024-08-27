@@ -68,9 +68,18 @@ body {
   background: #125688;
   color: white;
 }
-
-@media (max-width: 500px) {
-  body {
-    background-color: blue;
+#aside2 {
+  display: none;
+}
+/* when screen is below 768px photo disapears and aside appears at the bottom of the page */
+@media only screen and (max-width: 768px) {
+  #image {
+    display: none;
+  }
+  #aside1 {
+    display: none;
+  }
+  #aside2 {
+    display: contents;
   }
 }
