@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Question 1
+      function Capital(word) {
+        const capitalized = word.charAt(0).toUpperCase() + word.slice(1);
+        return capitalized;
+      }
+      console.log(Capital("hello There"));
+
+      //Question 2
+
+      function truncate(str, max) {
+        let stringLength = str.length;
+
+        if (stringLength >= max) {
+          stringLength = max;
+          let newLength = str.substring(0, max);
+          let display = console.log(newLength) + console.log(stringLength);
+
+          return;
+          console.log(stringLength);
+        }
+      }
+
+      truncate("hippidyasdsad", 8);
+    </script>
+  </body>
+</html>
