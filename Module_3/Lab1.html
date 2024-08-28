@@ -63,6 +63,7 @@
 
       // question 5
       // variable expression
+
       const Greating = function expression(name) {
         return "Hello " + name + "!";
       };
@@ -91,8 +92,8 @@
            ${this.lastName}. `;
           console.log(greeting + this.getCatchPhrase(person));
         },
-        getCatchPhrase(person, numFingers) {
-          if ((numFingers = 6)) {
+        getCatchPhrase(person) {
+          if (person.numFingers >= 6) {
             return "You killed my father. Prepare to die.";
           } else {
             return "nice to meet you";
@@ -101,7 +102,6 @@
       };
       inigo.greeting(westley);
       inigo.greeting(rugen);
-      inigo.getCatchPhrase(rugen);
 
       //question 7
       const basketballGame = {
