@@ -84,7 +84,7 @@
       console.log(findMatchingAnimals("C"));
 
       // Question 4
-      // attempt 1 of Question 4 - help with AI
+      // attempt 1 of Question 4 - help with AI using the conditional operator
       function camelCase(cssProp) {
         return cssProp
           .split("-") // split from dash
@@ -105,11 +105,30 @@
       function forLoopCamelCase(cssProp) {
         let words = cssProp.split("-"); // This splits the words by the "-"
         for (let i = 1; i < words.length; i++) {
-          // This loop will interate over each word as long as index is bigger than the words length
+          // This loop will interate over each word as long as index is less than the words length
           words[i] = words[i][0].toUpperCase() + words[i].slice(1);
         }
-        return words.join("");
+        return words.join(""); // this will return the word back without any spaces
       }
+
+      //Question 5 a
+      let twentyCents = 0.2;
+      let tenCents = 0.1;
+      let fixedTwenty = twentyCents.toFixed(2);
+      let fixedTen = tenCents.toFixed(2);
+      console.log(fixedTwenty + fixedTen); //why is this not working? - it is not working as javascript is concatenating the strings instead of adding them togeather. you would need to use parseFloat() to convert the strings back to numbers.
+
+      //5b
+      function currentlyAddition(float1, float2) {
+        // round floats safly using toFixed()
+        let sum = parseFloat((float1 + float2).toFixed(2));
+        return sum;
+      }
+
+      //5c
+      function currencyOperation(float1, float2, operation) {}
+
+      console.log(currentlyAddition(0.2, 0.1));
     </script>
   </body>
 </html>
