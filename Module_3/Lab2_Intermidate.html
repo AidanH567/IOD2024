@@ -70,6 +70,37 @@
       }
       replaceMiddleAnimal("Horse");
       console.log(animals);
+
+      // Beings with function
+      function findMatchingAnimals(beginsWith) {
+        // In comments was my first attempt
+        //   const result = animals.map((animal) => animal[0]).join("");
+        //   console.log(result);
+        //   const letterFilter = results.filter(beginsWith);
+        // }
+        // findMatchingAnimals("C");
+        return animals.filter((animal) => animal.startsWith(beginsWith));
+        // above i dont really understand that varible "animal"
+      }
+      console.log(findMatchingAnimals("C"));
+
+      // Question 4
+      // attem 1 of Question 4 - help with AI
+      function camelCase(cssProp) {
+        return cssProp
+          .split("-") // split from dash
+          .map(
+            (
+              word,
+              index // loop between words, first word remains unchanged
+            ) =>
+              index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)
+          )
+          .join("");
+        ("join the words back togeather without seporators");
+      }
+      console.log(camelCase("font-family"));
+      // Using different types of for loops
     </script>
   </body>
 </html>
