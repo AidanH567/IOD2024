@@ -25,13 +25,26 @@
         if (stringLength >= max) {
           stringLength = max;
           let newString = str.substring(0, max);
-          let display = console.log(newString + " .....");
-
-          return;
+          let display = newString + " .....";
+          console.log(display);
+        } else {
+          console.log(str);
         }
       }
 
-      truncate("hippidyasdsad", 8);
+      // with conditional operator
+      function truncate2(str, max) {
+        let stringLength = str.length;
+        let newString = str.substring(0, max);
+        let conOper =
+          stringLength >= max
+            ? console.log(newString + ".....")
+            : console.log(str);
+      }
+
+      truncate("as", 8);
+
+      truncate2("as", 5);
     </script>
   </body>
 </html>
