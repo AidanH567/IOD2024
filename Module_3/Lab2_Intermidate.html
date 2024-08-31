@@ -79,7 +79,9 @@
         //   const letterFilter = results.filter(beginsWith);
         // }
         // findMatchingAnimals("C");
+
         return animals.filter((animal) => animal.startsWith(beginsWith));
+
         // above i dont really understand that varible "animal"
       }
       console.log(findMatchingAnimals("C"));
@@ -100,7 +102,17 @@
         ("join the words back togeather without seporators");
       }
       console.log(camelCase("font-family"));
+
       // Using different types of for loops
+      //standards for loop
+      function forLoopCamelCase(cssProp) {
+        let words = cssProp.split("-"); // This splits the words by the "-"
+        for (let i = 1; i < words.length; i++) {
+          // This loop will interate over each word as long as index is bigger than the words length
+          words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+        }
+        return words.join("");
+      }
     </script>
   </body>
 </html>
