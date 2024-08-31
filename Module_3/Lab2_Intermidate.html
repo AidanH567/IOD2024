@@ -41,7 +41,6 @@
             ? console.log(newString + ".....")
             : console.log(str);
       }
-
       truncate("as", 8);
 
       truncate2("adsadasa", 5);
@@ -81,13 +80,11 @@
         // findMatchingAnimals("C");
 
         return animals.filter((animal) => animal.startsWith(beginsWith));
-
-        // above i dont really understand that varible "animal"
       }
       console.log(findMatchingAnimals("C"));
 
       // Question 4
-      // attem 1 of Question 4 - help with AI
+      // attempt 1 of Question 4 - help with AI
       function camelCase(cssProp) {
         return cssProp
           .split("-") // split from dash
@@ -99,7 +96,7 @@
               index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)
           )
           .join("");
-        ("join the words back togeather without seporators");
+        //join the words back togeather without seporators;
       }
       console.log(camelCase("font-family"));
 
