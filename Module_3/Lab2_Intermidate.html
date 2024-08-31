@@ -44,7 +44,32 @@
 
       truncate("as", 8);
 
-      truncate2("as", 5);
+      truncate2("adsadasa", 5);
+
+      //question 3
+
+      const animals = ["Tiger", "Giraffe"];
+      console.log(animals);
+
+      animals.push("Dog", "Cow");
+      console.log(animals);
+
+      animals.unshift("Cat", "Mouse");
+      console.log(animals);
+
+      animals.sort();
+
+      // middle function
+      function replaceMiddleAnimal(newValue) {
+        let middle = animals[Math.round((animals.length - 1) / 2)];
+        indexMiddle = animals.indexOf(middle);
+        console.log(indexMiddle);
+
+        console.log(middle);
+        let addValue = animals.splice(indexMiddle, 0, newValue);
+      }
+      replaceMiddleAnimal("Horse");
+      console.log(animals);
     </script>
   </body>
 </html>
