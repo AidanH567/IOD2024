@@ -98,7 +98,31 @@
             </article>
     </article>
 
+    <form method="POST" action="http://127.0.0.1:5500/form.html">
+       <div> <input id="first-name" type="text"><label for="first-name"></label></div>
+        <div> <input id="last-name" type="text"><label for="last-name"></label> </div>
+            <div>
+            <input id="JavaScript" type="radio" name="javascriptInput" value="javascriptValue"><label for="JavaScript">JavaScript</label>
+            <input id="Python" type="radio" name="pythonInput" value="pythonValue"><label for="Python">Python</label>
+            <input id="C++" type="radio" name="C++Input" value="C++Value"><label for="C++">C++</label>
+            </div>
+
+         <label for="cars">Choose a car:</label>
+
+        <select name="cars" id="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+        </select>
+
+        <button type="submit">Submit form</button>
+        
+    </form>
     
+
+
+
   <header>
     <nav>
       <!-- works like <a href="/index.html">Home</a> -->
