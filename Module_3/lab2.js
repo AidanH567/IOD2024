@@ -40,9 +40,9 @@
             ? console.log(newString + ".....")
             : console.log(str);
       }
-      truncate("asdadaasdasd", 8);
+      truncate("asdadaasdasd", 5);
 
-      truncate2("adsadasa", 5);
+      truncate2("adsadasa", 3);
 
       //question 3
 
@@ -161,17 +161,27 @@
   const colours = ['red', 'green', 'blue', 'yellow', 'orange', 'red', 'blue', 'yellow']
   const testScores = [55, 84, 97, 63, 55, 32, 84, 91, 55, 43]
 
-  let Array2 = []; // this is an empty array which the arrays will enter to then get the duplicaates removed.
+  
+
+  // function unique(duplicatesArray) {
+  //  let Array2 = duplicatesArray.filter(function (item, index, array){  //setting call back function for array 
+
+  //   return index == array.indexOf(item);
+  //  })
+
+  //  return Array2;
+
+  // };
 
   function unique(duplicatesArray) {
-   let Array2 = duplicatesArray.filter(function (v, i, self){  //setting call back function for array 
-
-    return i == self.indexOf(v);
-   })
-
-   return Array2;
-
-  };
+    let Array1 = duplicatesArray.filter( (item, index ) => //setting call back function for array 
+ 
+     index == duplicatesArray.indexOf(item)
+    )
+ 
+    return Array1; 
+ 
+   };
   
 
     console.log(unique(colours)) // [ 'red', 'green', 'blue', 'yellow', 'orange' ]
@@ -201,6 +211,20 @@
   }
   console.log(getOldBooks(books));
 
+
+  //Practice for loop and map
+  for (let book of books) {
+    console.log(book.title+"for of");
+    
+  }
+  books.map(book => {
+    console.log(book.title+"map")
+  }
+);
+
+
+
+
   //7c 
      
      const addGenre = (arr, genre) => {
@@ -215,4 +239,4 @@
   
   //7d 
 
-  let bookName = books.filter(book => book.title ==)
+  
