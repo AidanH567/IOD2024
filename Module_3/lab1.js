@@ -1,21 +1,21 @@
 //Question 1
-console.log("" + 1 + 0);
-console.log("" - 1 + 0);
-console.log(true + false);
-console.log(!true);
-console.log(6 / "3");
-console.log("2" * "3");
-console.log(4 + 5 + "px");
-console.log("$" + 4 + 5);
-console.log("4" - 2);
-console.log("4px" - 2);
-console.log(" -9 " + 5);
-console.log(" -9 " - 5);
-console.log(null + 1);
-console.log(undefined + 1);
-console.log(undefined == null);
-console.log(undefined === null);
-console.log(" \t \n" - 2);
+console.log("" + 1 + 0); //The result will be ten as the + will be concatenating 1 and 0
+console.log("" - 1 + 0); // results in -1 as the - operator only works for numeric operations so the string get converted to 0
+console.log(true + false); //result = 1 as numerically true = 1 and false = 0
+console.log(!true); // false as ! operator makes the true statement to "not true" which is false
+console.log(6 / "3"); // the / operator only works with numeric operations so it converts the string to 3. 6/3 = 2
+console.log("2" * "3"); // * operator only works with numeric operations so strings convert to numbers. 2 * 3 = 6
+console.log(4 + 5 + "px"); //the plus + operator works left to right so it adds 4 and 5 togeather then concatenate's 9 to "px". answer will be 9px
+console.log("$" + 4 + 5); //As the string is on the left it will concatenate the whole line. answer will be $45
+console.log("4" - 2); // - operator only works with numeric values so it converts string to number. answer is 4 - 2 = 2
+console.log("4px" - 2); // this equals nan because it tries to convert 4px to a number which is can't
+console.log(" -9 " + 5); // the plus operator concatenates the string and number resulting in -9 5
+console.log(" -9 " - 5); // answer = -14 as - operator converts string to number
+console.log(null + 1); // = 1 because null gets coverted to 0
+console.log(undefined + 1); // undefined  converts to nan and nan + 1 = nan
+console.log(undefined == null); // as == is a type coercion and null and undefined have no value it comes back to true
+console.log(undefined === null); // returns false as the type of value is different
+console.log(" \t \n" - 2); // it = -2 as - operator turns string to number and in the string there is a tab and a line break which does not add value to the string. So equation is 0-2 = 2
 
 // questions 2
 let three = "3";
