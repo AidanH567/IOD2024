@@ -1,5 +1,6 @@
 // Question 1
-// my first initaal attempt at Question 1
+console.log("Question 1");
+// my first inital attempt at Question 1
 function Capital(word) {
   const capitalized = word.charAt(0).toUpperCase() + word.slice(1);
   return capitalized;
@@ -16,20 +17,30 @@ function ucFirstLetters(str) {
     )
     .join(" "); // Join the array of words back into a single string with spaces
 }
-console.log(ucFirstLetters("capitalize each word"));
+console.log(ucFirstLetters("capitalize each word please"));
 
 //Question 2
-//With out Coditional Operator
-function truncate(str, max) {
-  let stringLength = str.length;
+console.log("Question 2");
 
-  if (stringLength >= max) {
-    stringLength = max;
-    let newString = str.substring(0, max);
-    let display = newString + " .....";
-    console.log(display);
+//Attempt 1 With out Conditional Operator not clean
+// function truncate(str, max) {
+//   let stringLength = str.length;
+
+//   if (stringLength >= max) {
+//     stringLength = max;
+//     let newString = str.substring(0, max);
+//     let display = newString + " .....";
+//     console.log(display);
+//   } else {
+//     console.log(str);
+//   }
+// }
+//attempt 2 Without Conditional Operator. Much Cleaner
+function truncate(str, max) {
+  if (str.length > max) {
+    console.log(str.substring(0, max) + " ....."); // Truncate and add ellipsis
   } else {
-    console.log(str);
+    console.log(str); // Output the original string if it's within the limit
   }
 }
 
@@ -37,27 +48,27 @@ function truncate(str, max) {
 function truncate2(str, max) {
   let stringLength = str.length;
   let newString = str.substring(0, max);
-  let conOper =
-    stringLength >= max ? console.log(newString + ".....") : console.log(str);
+  stringLength >= max ? console.log(newString + ".....") : console.log(str);
 }
 truncate("asdadaasdasd", 5);
-
-truncate2("adsadasa", 3);
+truncate2("adsadasa", 2);
 
 //question 3
+console.log("Question 3");
 
 const animals = ["Tiger", "Giraffe"];
 console.log(animals);
-
+//3a
 animals.push("Dog", "Cow");
 console.log(animals);
-
+//3b
 animals.unshift("Cat", "Mouse");
 console.log(animals);
 
-animals.sort();
+console.log("3c");
+console.log(animals.sort());
 
-// middle function
+// Question 3 D middle function
 function replaceMiddleAnimal(newValue) {
   let middle = animals[Math.round((animals.length - 1) / 2)];
   indexMiddle = animals.indexOf(middle);
@@ -71,18 +82,14 @@ console.log(animals);
 
 // Beings with function
 function findMatchingAnimals(beginsWith) {
-  // In comments was my first attempt
-  //   const result = animals.map((animal) => animal[0]).join("");
-  //   console.log(result);
-  //   const letterFilter = results.filter(beginsWith);
-  // }
-  // findMatchingAnimals("C");
-
-  return animals.filter((animal) => animal.startsWith(beginsWith));
+  const lowercase = beginsWith.toLowerCase();
+  return animals.filter((animal) => animal.toLowerCase().startsWith(lowercase));
 }
-console.log(findMatchingAnimals("C"));
+console.log(findMatchingAnimals("c"));
+console.log(findMatchingAnimals("t"));
 
 // Question 4
+console.log("Question 4");
 // attempt 1 of Question 4 - help with AI using the conditional operator
 function camelCase(cssProp) {
   return cssProp
@@ -98,6 +105,7 @@ function camelCase(cssProp) {
 }
 console.log(camelCase("font-family"));
 
+//question 4b
 // Using different types of for loops
 //standard for loop without conditional operator
 function forLoopCamelCase(cssProp) {
@@ -111,6 +119,8 @@ function forLoopCamelCase(cssProp) {
 console.log(forLoopCamelCase("hello-there"));
 
 //Question 5 a
+
+console.log("Question 5a");
 let twentyCents = 0.2;
 let tenCents = 0.1;
 let fixedTwenty = twentyCents.toFixed(2);
@@ -120,7 +130,7 @@ console.log(fixedTwenty + fixedTen);
 
 //5b
 function currentlyAddition(float1, float2) {
-  // round floats safly using toFixed()
+  // round floats safely using toFixed()
   let sum = parseFloat((float1 + float2).toFixed(2));
   return sum;
 }
@@ -156,7 +166,7 @@ console.log(currencyOperation(0.78, 0.23, "*"));
 
 //question 6
 // I will use the filter function to remove duplicates.
-
+console.log("Question 6");
 const colours = [
   "red",
   "green",
@@ -195,6 +205,8 @@ console.log(unique(testScores)); // [ 55, 84, 97, 63, 32, 91, 43 ]
 
 //question 7
 
+console.log("Question 7");
+
 const books = [
   {
     id: 1,
@@ -212,6 +224,7 @@ const books = [
     year: 1951,
   },
 ];
+
 //7a
 function getBookTitle(bookId) {
   let findBook = books.find((book) => book.id == bookId);
@@ -228,12 +241,12 @@ function getOldBooks(array) {
 console.log(getOldBooks(books));
 
 //Practice for loop and map
-for (let book of books) {
-  console.log(book.title + "for of");
-}
-books.map((book) => {
-  console.log(book.title + "map");
-});
+// for (let book of books) {
+//   console.log(book.title + " for of");
+// }
+// books.map((book) => {
+//   console.log(book.title + "map");
+// });
 
 //7c
 
@@ -247,3 +260,139 @@ const updatedBooks = addGenre(books, "Classic"); // creating a variable that add
 console.log(updatedBooks);
 
 //7d
+
+//Question 8
+
+//8a
+const phoneBookABC = new Map(); //an empty map to begin with
+phoneBookABC.set("Annabelle", "0412312343");
+phoneBookABC.set("Barry", "0433221117");
+phoneBookABC.set("Caroline", "0455221182");
+
+console.log(phoneBookABC);
+
+//8b
+const phoneBookDEF = new Map();
+phoneBookDEF.set("Dan", "0412312343");
+phoneBookDEF.set("Elliot", "0433221117");
+phoneBookDEF.set("Frank", "0455221182");
+console.log(phoneBookDEF);
+
+//8c
+phoneBookABC.set("Caroline", "0455224231");
+
+console.log(phoneBookABC);
+
+const phoneBook = new Map([...phoneBookABC, ...phoneBookDEF]);
+
+console.log(phoneBook);
+
+//Question 9
+
+let salaries = {
+  Timothy: 35000,
+  David: 25000,
+  Mary: 55000,
+  Christina: 75000,
+  James: 43000,
+};
+
+function sumSalaries(salaries) {
+  let sum = 0;
+
+  Object.values(salaries).forEach((element) => {
+    sum += element;
+  });
+  return sum;
+}
+
+console.log(sumSalaries(salaries));
+
+function topEarner(salaries) {
+  let values = Object.values(salaries);
+  let names = Object.keys(salaries);
+  let highSalary = Math.max(...values);
+  let highEarner = names[values.indexOf(highSalary)];
+
+  return highEarner;
+}
+
+console.log(topEarner(salaries));
+
+//Question 10
+console.log("Question 10");
+
+const today = new Date();
+console.log("Current time is " + today.toLocaleTimeString());
+console.log(today.getHours() + " hours have passed so far today");
+
+//10a
+const hours = today.getHours();
+const minutes = today.getMinutes();
+const totalMinutes = hours * 60 + minutes;
+console.log(totalMinutes + " minutes have passes so far");
+
+//10b
+const seconds = today.getSeconds();
+const totalseconds = hours * 60 * 60 + minutes * 60 + seconds;
+console.log(totalseconds + " seconds have passes so far");
+
+//10 c
+
+const birthday = new Date("2000-07-01T00:00:00");
+
+const difference = today - birthday;
+
+const millisecondsInSecond = 1000;
+const millisecondsInMinute = millisecondsInSecond * 60;
+const millisecondsInHour = millisecondsInMinute * 60;
+const millisecondsInDay = millisecondsInHour * 24;
+
+// Calculate the number of days, hours, minutes, and seconds
+const days = Math.floor(difference / millisecondsInDay);
+
+const hours1 = Math.floor(
+  (difference % millisecondsInDay) / millisecondsInHour
+);
+const minutes2 = Math.floor(
+  (difference % millisecondsInHour) / millisecondsInMinute
+);
+const seconds3 = Math.floor(
+  (difference % millisecondsInMinute) / millisecondsInSecond
+);
+const years = Math.floor(days / 365);
+console.log(
+  `${years} Years,${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`
+);
+
+//D
+
+function daysInBetween(date1Str, date2Str) {
+  const date1 = new Date(date1Str);
+  const date2 = new Date(date2Str);
+
+  const timeDif = Math.abs(date1 - date2);
+
+  const millisecondsInSecond = 1000;
+  const millisecondsInMinute = millisecondsInSecond * 60;
+  const millisecondsInHour = millisecondsInMinute * 60;
+  const millisecondsInDay = millisecondsInHour * 24;
+
+  const days = Math.floor(timeDif / millisecondsInDay);
+  const hours = Math.floor((timeDif % millisecondsInDay) / millisecondsInHour);
+  const minutes = Math.floor(
+    (timeDif % millisecondsInHour) / millisecondsInMinute
+  );
+  const seconds = Math.floor(
+    (timeDif % millisecondsInMinute) / millisecondsInSecond
+  );
+
+  return {
+    days,
+    hours,
+    minutes,
+    seconds,
+  };
+}
+
+console.log(daysInBetween("2023-09-07T00:00:00", "2000-09-07T00:00:00"));
