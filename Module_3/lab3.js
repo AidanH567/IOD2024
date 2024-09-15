@@ -139,25 +139,128 @@
 
 // multiply.delay(500)(5, 5, 4, 3); // prints 300 after 500 milliseconds
 
-//question 7
+// //question 7
 
-function Person(name, age, gender) {
-  this.name = name;
-  this.age = age;
-  this.gender = gender;
+// function Person(name, age, gender) {
+//   this.name = name;
+//   this.age = age;
+//   this.gender = gender;
+// }
+
+// Person.prototype.toString = function () {
+//   return `Name: ${this.name} age: ${this.age} gender: ${this.gender}`;
+// };
+
+// const person1 = new Person("James Brown", 73, "male");
+// console.log("person1: " + person1); //prints person1: [object Object]
+// console.log(person1.toString());
+
+// //7b
+// const person2 = new Person("Tim James", 22, "Male");
+// console.log(person2.toString());
+
+// //7c
+// function Student(name, age, gender, cohort) {
+//   Person.call(this, name, age, gender);
+
+//   this.cohort = cohort;
+// }
+
+// Student.prototype.toString = function () {
+//   return `Name: ${this.name} age: ${this.age} gender: ${this.gender} Cohort: ${this.cohort}`;
+// };
+
+// const person4 = new Student("James Patterson", 13, "Male", "Year 11");
+// const person5 = new Student("Catlin Stark", 44, "Female", "Teacher");
+// console.log(person4.toString());
+
+//Question 8
+
+// class DigitalClock {
+//   constructor(prefix) {
+//     this.prefix = prefix;
+//   }
+
+//   display() {
+//     let date = new Date();
+//     let [hours, mins, secs] = [
+//       date.getHours(),
+//       date.getMinutes(),
+//       date.getSeconds(),
+//     ];
+
+//     if (hours < 10) hours = "0" + hours;
+//     if (mins < 10) mins = "0" + mins;
+//     if (secs < 10) secs = "0" + secs;
+
+//     console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
+//   }
+
+//   stop() {
+//     clearInterval(this.timer);
+//   }
+
+//   start() {
+//     this.display();
+//     this.timer = setInterval(() => this.display(), 1000);
+//   }
+// }
+
+// const myClock = new DigitalClock("my clock:");
+// myClock.start();
+
+// class PrecisionClock extends DigitalClock {
+//   constructor(prefix, precision = 1000) {
+//     super(prefix);
+//     this.precision = precision;
+//   }
+//   start() {
+//     this.display();
+//     this.timer = setInterval(() => this.display(), this.precision);
+//   }
+// }
+
+// const preClock = new PrecisionClock("precise clock:", 500);
+// preClock.start();
+
+// class AlarmClock extends DigitalClock {
+//   constructor(prefix, wakeUp = "07:00", precision = 1000) {
+//     super(prefix);
+//     this.wakeUp = wakeUp;
+//     this.precision = precision;
+//   }
+//   display() {
+//     let date = new Date();
+//     //create 3 variables in one go using array destructuring
+//     let [hours, mins, secs] = [
+//       date.getHours(),
+//       date.getMinutes(),
+//       date.getSeconds(),
+//     ];
+
+//     if (hours < 10) hours = "0" + hours;
+//     if (mins < 10) mins = "0" + mins;
+//     if (secs < 10) secs = "0" + secs;
+
+//     if (`${hours}:${mins}` === this.wakeUp) {
+//       console.log("Wake Up!");
+//       this.stop();
+//       return;
+//     }
+//     console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
+//   }
+
+//   start() {
+//     this.display();
+//     this.timer = setInterval(() => this.display(), this.precision);
+//   }
+// }
+// const alarmClock = new AlarmClock("Alarm:", "18:21");
+// alarmClock.start();
+
+//Question 9
+
+function randomDelay() {
+  // your code
 }
-
-Person.prototype.toString = function () {
-  return `Name: ${this.name} age: ${this.age} gender: ${this.gender}`;
-};
-
-const person1 = new Person("James Brown", 73, "male");
-console.log("person1: " + person1); //prints person1: [object Object]
-console.log(person1.toString());
-
-//7b
-const person2 = new Person("Tim James", 22, "Male");
-console.log(person2.toString());
-
-//7c
-function Student() {}
+randomDelay().then(() => console.log("There appears to have been a delay."));
