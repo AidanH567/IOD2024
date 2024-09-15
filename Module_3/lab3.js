@@ -261,6 +261,35 @@
 //Question 9
 
 function randomDelay() {
-  // your code
+  let randomTime = Math.floor(Math.random() * 20000) + 1000;
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (randomTime % 2 === 0) {
+        resolve({ message: "Result", randomTime });
+      } else {
+        reject({ message: "Random time is odd, delay failed", randomTime });
+      }
+    }, randomTime);
+  });
 }
-randomDelay().then(() => console.log("There appears to have been a delay."));
+
+randomDelay()
+  .then(({ message, randomTime }) =>
+    console.log(
+      "There appears to have been a delay: " +
+        message +
+        ". Random Time: " +
+        randomTime +
+        " milliseconds."
+    )
+  )
+  .catch(({ message, randomTime }) =>
+    console.error(
+      "Delay failed: " +
+        message +
+        ". Random Time: " +
+        randomTime +
+        " milliseconds."
+    )
+  );
