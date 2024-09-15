@@ -260,36 +260,80 @@
 
 //Question 9
 
-function randomDelay() {
-  let randomTime = Math.floor(Math.random() * 20000) + 1000;
+// function randomDelay() {
+//   let randomTime = Math.floor(Math.random() * 20000) + 1000;
 
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (randomTime % 2 === 0) {
-        resolve({ message: "Result", randomTime });
-      } else {
-        reject({ message: "Random time is odd, delay failed", randomTime });
-      }
-    }, randomTime);
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (randomTime % 2 === 0) {
+//         resolve({ message: "Result", randomTime });
+//       } else {
+//         reject({ message: "Random time is odd, delay failed", randomTime });
+//       }
+//     }, randomTime);
+//   });
+// }
+
+// randomDelay()
+//   .then(({ message, randomTime }) =>
+//     console.log(
+//       "There appears to have been a delay: " +
+//         message +
+//         ". Random Time: " +
+//         randomTime +
+//         " milliseconds."
+//     )
+//   )
+//   .catch(({ message, randomTime }) =>
+//     console.error(
+//       "Delay failed: " +
+//         message +
+//         ". Random Time: " +
+//         randomTime +
+//         " milliseconds."
+//     )
+//   );
+//Question 10
+
+import fetch from "node-fetch";
+globalThis.fetch = fetch;
+function fetchURLData(url) {
+  let fetchPromise = fetch(url).then((response) => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error(`Request failed with status ${response.status}`);
+    }
   });
+  return fetchPromise;
 }
 
-randomDelay()
-  .then(({ message, randomTime }) =>
-    console.log(
-      "There appears to have been a delay: " +
-        message +
-        ". Random Time: " +
-        randomTime +
-        " milliseconds."
-    )
-  )
-  .catch(({ message, randomTime }) =>
-    console.error(
-      "Delay failed: " +
-        message +
-        ". Random Time: " +
-        randomTime +
-        " milliseconds."
-    )
-  );
+async function fetchURLData1(url) {
+  try {
+    const response = await fetch(url);
+    if (response.ok) {
+      const jsonData = await response.json();
+      return jsonData;
+    } else {
+      throw new Error(`Request failed with status ${response.status}`);
+    }
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
+
+fetchURLData("https://jsonplaceholder.typicode.com/todos/1")
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error.message));
+
+fetchURLData("https://jsonplaceholder.typicode.com/todos/1/invalid")
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error.message));
+
+fetchURLData1("https://jsonplaceholder.typicode.com/todos/1")
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error.message));
+
+fetchURLData1("https://jsonplaceholder.typicode.com/todos/1/invalid")
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error.message));
