@@ -58,3 +58,17 @@ addsauce();
 addtoppings();
 cookpizza();
 pizzaready();
+
+// function logDecorator(fn) {
+//   return function (...args) {
+//     console.log("calling function");
+//     const result = fn(...args);
+//     console.log("function called");
+//     return result;
+//   };
+// }
+// function sum(a, b) {
+//   return a + b;
+// }
+// const decoratedSum = logDecorator(sum);
+// console.log(decoratedSum(2, 3));
