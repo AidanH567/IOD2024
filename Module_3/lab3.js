@@ -85,7 +85,7 @@
 // }
 
 // //Question 4 b) using for each and setTimeout
-// function printFibonacci(array) {
+// function printFibonacciForEach(array) {
 //   array.forEach((number, index) => {
 //     setTimeout(() => {
 //       console.log(number);
@@ -93,7 +93,8 @@
 //   });
 // }
 
-// printFibonacci(fibo, 3); // now has a limit
+// printFibonacci(fibo, 3);
+// printFibonacciForEach(fibo, 3); // now has a limit
 
 //Question 5
 
