@@ -8,15 +8,26 @@
       }
       .card {
         padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        background-color: #ffffff;
       }
       .card-title {
         font-weight: 600;
-        font-size: 3em;
+        font-size: 1.5em;
         padding: 0 0 10px 0;
       }
-      .card-description {
-        font-weight: 400;
-        font-size: 2em;
+      .portfolio-item {
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      .portfolio-item-title {
+        font-weight: 500;
+        font-size: 1.2em;
+        padding: 5px 0;
+      }
+      .portfolio-container {
+        margin-top: 20px;
       }
     </style>
   </head>
@@ -37,58 +48,87 @@
       </div>
     </template>
 
+    <template id="card-template">
+      <div class="card">
+        <div class="card-title"></div>
+        <div class="card-text"></div>
+      </div>
+    </template>
+
     <div id="card-list"></div>
 
     <script>
-      const artist = {
-        name: "Van Gogh",
-        portfolio: [
-          {
-            title: "Portrait",
-            url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image",
-          },
-          {
-            title: "Sky",
-            url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg",
-          },
-        ],
-      };
+      const artists = [
+        {
+          name: "Van Gogh",
+          portfolio: [
+            {
+              title: "Portrait",
+              url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image",
+            },
+            {
+              title: "Sky",
+              url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg",
+            },
+          ],
+        },
+        {
+          name: "Monet",
+          portfolio: [
+            {
+              title: "Water Lilies",
+              url: "https://upload.wikimedia.org/wikipedia/commons/0/05/Claude_Monet_-_Nymph%C3%A9as_-_1920.jpg",
+            },
+            {
+              title: "The Japanese Bridge",
+              url: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Claude_Monet_-_The_Japanese_Bridge_%28Monet%29.jpg",
+            },
+          ],
+        },
+      ];
 
       function addArtist(name, portfolio) {
-        const template = document.getElementById("artist-template").content.cloneNode(true);
-        template.querySelector('.card-title').innerText = name;
+        const template = document
+          .getElementById("artist-template")
+          .content.cloneNode(true);
+        template.querySelector(".card-title").innerText = name;
 
-        portfolio.forEach(item => {
-          const portfolioTemplate = document.getElementById("portfolio-template").content.cloneNode(true);
-
-          portfolioTemplate.querySelector(".portfolio-item-title").innerText = item.title;
-          portfolioTemplate.querySelector(".portfolio-item-image").src = item.url;
-
-          template.querySelector(".portfolio-container").appendChild(portfolioTemplate);
+        portfolio.forEach((item) => {
+          const portfolioTemplate = document
+            .getElementById("portfolio-template")
+            .content.cloneNode(true);
+          portfolioTemplate.querySelector(".portfolio-item-title").innerText =
+            item.title;
+          portfolioTemplate.querySelector(".portfolio-item-image").src =
+            item.url;
+          template
+            .querySelector(".portfolio-container")
+            .appendChild(portfolioTemplate);
         });
 
-        document.getElementById('card-list').appendChild(template);
+        document.getElementById("card-list").appendChild(template);
       }
 
-      // Add artist with portfolio
-      addArtist(artist.name, artist.portfolio);
+      artists.forEach((artist) => addArtist(artist.name, artist.portfolio));
 
-addArtist(artist.name, artist.portfolio)
-    const data = [
-      { name: "bob", age: 23 },
-      { name: "alice", age: 39 },
-    ];
-    function addCard(content1, content2) {
-      const template = document
-        .getElementById("card-template")
-        .content.cloneNode(true);
-      template.querySelector(".card-title").innerText = content1;
-      template.querySelector(".card-text").innerText = content2;
-      document.querySelector("#card-list").appendChild(template);
-    }
-    data.forEach(function (card) {
-      add(card.name, card.age);
-    });
-    addCard("Hi there", "Hello");
-  </script>
+      const data = [
+        { name: "Bob", age: 23 },
+        { name: "Alice", age: 39 },
+        { name: "Charlie", age: 35 },
+      ];
+
+      function addCard(content1, content2) {
+        const template = document
+          .getElementById("card-template")
+          .content.cloneNode(true);
+        template.querySelector(".card-title").innerText = content1;
+        template.querySelector(".card-text").innerText = content2;
+        document.querySelector("#card-list").appendChild(template);
+      }
+
+      data.forEach((card) => {
+        addCard(`Name: ${card.name}`, `Age: ${card.age}`);
+      });
+    </script>
+  </body>
 </html>
