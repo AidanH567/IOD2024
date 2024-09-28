@@ -49,6 +49,8 @@ if (1) console.log("positive is true"); // will print because 1 is positivve val
 console.log("Question 4");
 let a = 2,
   b = 15;
+console.log("a=", a);
+console.log("b=", b);
 let result = a + b;
 //let result = a += b; if you use += it will make variable a = to the total value of a + b. so in this case a will = 17
 message =

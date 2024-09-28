@@ -67,34 +67,34 @@
 
 //question 4
 
-// let fibo = [1, 1, 2, 3, 5, 8, 13, 21, 34]; // setting an array for each number in fibonacci sequence
-// const delay = 1000; // setting a delay
+let fibo = [1, 1, 2, 3, 5, 8, 13, 21, 34]; // setting an array for each number in fibonacci sequence
+const delay = 1000; // setting a delay
 
-// function printFibonacci(array, limit) {
-//   let index = 0; //Initialize index
+function printFibonacci(array, limit) {
+  let index = 0; //Initialize index
 
-//   let interval = setInterval(() => {
-//     console.log(array[index]); //prints the current index of the Fibonacci number
+  let interval = setInterval(() => {
+    console.log(array[index]); //prints the current index of the Fibonacci number
 
-//     index++;
+    index++;
 
-//     if (index === array.length || index === limit) {
-//       clearInterval(interval);
-//     }
-//   }, delay);
-// }
+    if (index === array.length || index === limit) {
+      clearInterval(interval);
+    }
+  }, delay);
+}
 
-// //Question 4 b) using for each and setTimeout
-// function printFibonacciForEach(array) {
-//   array.forEach((number, index) => {
-//     setTimeout(() => {
-//       console.log(number);
-//     }, delay * index);
-//   });
-// }
+//Question 4 b) using for each and setTimeout
+function printFibonacciForEach(array) {
+  array.forEach((number, index) => {
+    setTimeout(() => {
+      console.log(number);
+    }, delay * index);
+  });
+}
 
-// printFibonacci(fibo, 3);
-// printFibonacciForEach(fibo, 3); // now has a limit
+printFibonacci(fibo, 3);
+printFibonacciForEach(fibo, 3); // now has a limit
 
 //Question 5
 
