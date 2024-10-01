@@ -10,9 +10,12 @@
   <p id="day-output"></p>
   <p id="total-output"></p>
   <p id="difference-output"></p>
+  <p id="comefirst-output"></p>
+  <p id="current-time"></p>
 
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js"></script>
-  
+  <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.34/builds/moment-timezone-with-data.min.js"></script>
+
   <script>
     const birthday = "2000-09-07T10:00:00";
     const currentTime = moment();
@@ -50,6 +53,30 @@
     };
 
     document.getElementById('difference-output').innerHTML = closestDate(newDate, newDate2);
+
+    const checkWhichDateComesFirst = (date1, date2) => {
+      const momentDate1 = moment(date1);
+      const momentDate2 = moment(date2);
+
+      if (momentDate1.isBefore(momentDate2)) {
+        return `${date1} comes before ${date2}.`;
+      } else if (momentDate1.isAfter(momentDate2)) {
+        return `${date2} comes before ${date1}.`;
+      } else {
+        return 'Both dates are the same.';
+      }
+    };
+
+    const date1 = "2001-09-07T10:00:00";
+    const date2 = "2003-09-07T10:00:00";
+    document.getElementById('comefirst-output').innerHTML = checkWhichDateComesFirst(date1, date2);
+
+    const getLondonTime = (timezone) => {
+      return moment.tz(timezone).format('YYYY-MM-DD HH:mm:ss'); // Return the formatted current time
+    };
+
+    const timezone = 'Europe/London'; 
+    document.getElementById('current-time').innerText = `Current time in ${timezone}: ${getLondonTime(timezone)}`;
   </script>
 </body>
 </html>
