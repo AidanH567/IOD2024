@@ -20,10 +20,23 @@ body {
   position: absolute;
   top: 0;
   left: 25px;
-  transition: top 2s, background-color 2s;
+  
+  
+  animation: moveBox 4s infinite; 
 }
 
-.box-area:hover .animated-box {
-  top: 250px;
-  background-color: blue;
+
+@keyframes moveBox {
+  0% {
+    top: 0; 
+    background-color: red; 
+  }
+  50% {
+    top: 250px; 
+    background-color: blue; 
+  }
+  100% {
+    top: 0; 
+    background-color: red; 
+  }
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 8</title>
+</head>
+<body>
+  
+  <p id="day-output"></p>
+  <p id="total-output"></p>
+  <p id="difference-output"></p>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js"></script>
+  
+  <script>
+    const birthday = "2000-09-07T10:00:00";
+    const currentTime = moment();
+    const momDate1 = moment(birthday);
+    const momDate2 = currentTime;
+    const diffDays = momDate2.diff(momDate1, 'days');
+    const dayOutput = `Difference in days: ${diffDays} days `;
+    document.getElementById('day-output').innerHTML = dayOutput;
+
+    const diffYears = momDate2.diff(momDate1, 'years');
+    const diffMonths = momDate2.diff(momDate1, 'months');
+    const totalOutput = `Difference in days: ${diffDays} days <br>
+    Difference in months: ${diffMonths} months <br>
+    Difference in years: ${diffYears} years`;
+    document.getElementById('total-output').innerHTML = totalOutput;
+
+    const newDate = "2001-09-07T10:00:00";
+    const newDate2 = "2003-09-07T10:00:00";
+
+    const closestDate = (date1, date2) => {
+      const momentDate1 = moment(date1);
+      const momentDate2 = moment(date2);
+      const currentTime = moment();
+
+      const difference1 = currentTime.diff(momentDate1, 'days');
+      const difference2 = currentTime.diff(momentDate2, 'days');
+
+      if (Math.abs(difference1) < Math.abs(difference2)) {
+        return `${date1} is closer to the current date.`;
+      } else if (Math.abs(difference2) < Math.abs(difference1)) {
+        return `${date2} is closer to the current date.`;
+      } else {
+        return 'Both dates are equally distant from the current date.';
+      }
+    };
+
+    document.getElementById('difference-output').innerHTML = closestDate(newDate, newDate2);
+  </script>
+</body>
+</html>
