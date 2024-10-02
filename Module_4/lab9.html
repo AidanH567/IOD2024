@@ -14,11 +14,9 @@
         
         let myChart = echarts.init(document.getElementById('main'));
 
-        
         fetch('https://fakestoreapi.com/products')
             .then((response) => response.json())
             .then((data) => {
-                
                 const categoryCount = {};
 
                 data.forEach(product => {
@@ -30,13 +28,17 @@
                     }
                 });
 
-                
                 const categories = Object.keys(categoryCount);
                 const counts = Object.values(categoryCount);
 
-                
                 let options = {
                     title: { text: 'Fake Store Categories' },
+                    tooltip: {  
+                        trigger: 'item',
+                        formatter: function(params) {
+                            return `${params.name}: ${params.value} items`; 
+                        }
+                    },
                     xAxis: {
                         type: 'category',
                         data: categories
@@ -49,7 +51,6 @@
                     }]
                 };
 
-                
                 myChart.setOption(options);
             })
             .catch((error) => {
