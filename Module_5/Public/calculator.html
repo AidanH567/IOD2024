@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Example</title>
+</head>
+<body>
+    <h1>My Calculator</h1>
+    <input id="num1" placeholder="Num 1" type="number" required>
+    <input id="num2" placeholder="Num 2" type="number" required>
+    
+    <button onclick="calculate('add')">Add +</button>
+    <button onclick="calculate('subtract')">Subtract -</button>
+    <button onclick="calculate('multiply')">Multiply ×</button>
+    <button onclick="calculate('divide')">Divide ÷</button>
+
+    <div>Result: <span id="result"></span></div>
+
+    <script>
+    function calculate(operation) {
+        let num1 = parseFloat(document.getElementById('num1').value);
+        let num2 = parseFloat(document.getElementById('num2').value);
+
+        // Perform the fetch operation without extra error handling
+        fetch(`/calculator/${operation}?num1=${num1}&num2=${num2}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerHTML = `Result: ${data.result}`;
+            });
+    }
+    </script>
+</body>
+</html>
