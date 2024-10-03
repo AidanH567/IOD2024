@@ -22,7 +22,7 @@
         let num1 = parseFloat(document.getElementById('num1').value);
         let num2 = parseFloat(document.getElementById('num2').value);
 
-        // Perform the fetch operation without extra error handling
+        
         fetch(`/calculator/${operation}?num1=${num1}&num2=${num2}`)
             .then(response => response.json())
             .then(data => {
