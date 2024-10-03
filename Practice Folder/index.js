@@ -6,13 +6,12 @@ app.get('/', (req, res) => {
 res.send('Hello World!')
 })
 
-app.get('/test', (req, res) => {
-    res.send('This is a test');
-  });
+app.use('/', express.static('public'))
 
-  app.get('/Cars', (req, res) => {
-    res.send('This the car backend');
+app.get('/test', (req, res) => {
+    res.send('Hello World!');
   });
+  
 
 app.listen(port, () => {
 console.log(`Example app listening
