@@ -8,11 +8,6 @@ res.send('Hello World!')
 
 app.use('/', express.static('public'))
 
-app.get('/test', (req, res) => {
-    res.send('Hello World!');
-  });
-  
-
 app.listen(port, () => {
 console.log(`Example app listening
 at http://localhost:${port}`)
