@@ -29,3 +29,8 @@ app.listen(port1, () => {
   console.log(`Example app listening
 at http://localhost:${port1}`);
 });
+
+// import all user routes (up top in index.js)
+const userRoutes = require("./Routes/userRoutes");
+// map the user routes to our app
+app.use("/users", userRoutes);
