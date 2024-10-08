@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const friends = require("../models/friends");
 
-// TODO - #1: Add support to the 'filter' endpoint for a new query parameter 'letter' which filters friends by starting letter
-
 // TODO - #2: Modify the 'info' route to only return the user-agent, content-type and accept header data
 
 // TODO - #3: Modify the dynamic GET route to return a single friend object matching the dynamic 'id' request parameter
@@ -51,19 +49,29 @@ router.get("/filter", (req, res) => {
 router.get("/info", (req, res) => {
   console.log(req.headers);
 
+  const userAgent = req.headers["user-agent"];
+  const contentType = req.headers["content-type"];
+  const accept = req.headers["accept"];
+
   // Modify this response to just return info on the user-agent, content-type and accept headers
-  res.json(req.headers);
+  res.json({
+    userAgent,
+    contentType,
+    accept,
+  });
 });
 
 // 3. Dynamic request param endpoint - get the friend matching the specific ID ie. /friends/3
 router.get("/:id", (req, res) => {
   console.log(req.params);
-  let friendId = req.params.id; // 'id' here will be a value matching anything after the / in the request path
+  let friendId = req.params.id;
+  let friend = friends.find((friend) => friend.id === Number(friendId));
 
-  // Modify this function to find and return the friend matching the given ID, or a 404 if not found
-
-  // Modify this response with the matched friend, or a 404 if not found
-  res.json({ result: "Finding friend with ID " + friendId });
+  if (friend) {
+    res.status(200).json(friend);
+  } else {
+    res.status(404).json({ error: "Friend not found" });
+  }
 });
 
 // a POST request with data sent in the body of the request, representing a new friend to add to our list
