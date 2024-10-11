@@ -5,6 +5,14 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
 
+const swaggerUi = require('swagger-ui-express');
+swaggerDocument = require('./swagger.json');
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument)
+);
+
 // Second Server
 // const app1 = express();
 // const port1 = 2000;
