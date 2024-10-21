@@ -1,36 +1,35 @@
+const Calculator = require("../libraries/Calculator");
+let myCalc = new Calculator();
+
 const addNumbers = (req, res) => {
   let number1 = parseInt(req.query.num1);
   let number2 = parseInt(req.query.num2);
-  let sum = number1 + number2;
-  console.log(sum);
-  res.status(200);
-  res.json({ result: sum });
+  let sum = myCalc.add(number1, number2);
+  res.status(200).json({ result: sum });
 };
+
 const subtractNumbers = (req, res) => {
   let number1 = parseInt(req.query.num1);
   let number2 = parseInt(req.query.num2);
-  let difference = number1 - number2;
-
-  console.log(difference);
+  let difference = myCalc.subtract(number1, number2);
   res.status(200).json({ result: difference });
 };
+
 const divideNumbers = (req, res) => {
   let number1 = parseInt(req.query.num1);
   let number2 = parseInt(req.query.num2);
-  if (number2 === 0) {
-    return res.status(400).json({ error: "Cannot divide by zero." });
+  try {
+    let result = myCalc.divide(number1, number2);
+    res.status(200).json({ result: result });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
-  let result = number1 / number2;
-
-  console.log(result);
-  res.status(200).json({ result: result });
 };
+
 const multiplyNumbers = (req, res) => {
   let number1 = parseInt(req.query.num1);
   let number2 = parseInt(req.query.num2);
-  let product = number1 * number2;
-
-  console.log(product);
+  let product = myCalc.multiply(number1, number2);
   res.status(200).json({ result: product });
 };
 
