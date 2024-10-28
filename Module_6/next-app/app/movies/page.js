@@ -1,49 +1,72 @@
-function Movie({title, year, synopsis}) {
-    return (
-    
+"use client";
+import React, { useState } from "react";
+
+function Movie({ title, year, synopsis }) {
+  return (
     <li>
-    <h3>{title}</h3> <span>({year})</span>
-    <div>{synopsis}</div>
+      <h3>{title}</h3> <span>({year})</span>
+      <div>{synopsis}</div>
     </li>
-    )
-    }
-    export default function Movielist() {
-    const movies = [
-        {
-            id: 1,
-        title: "The Shawshank Redemption",
-        year: 1994,
-        synopsis: "Two imprisoned men find redemption.",
-        },
-        {
-            id: 2,
-        title: "The Dark Knight",
-        year: 2008,
-        synopsis: "Batman fights the menace known as the Joker.",
-        },
-        {
-            id: 3,
-        title: "Interstellar",
-        year: 2014,
-        synopsis: "Explorers travel through a wormhole in space.",
-        },
-        ];
-    return (
-        <>
-   
+  );
+}
 
-<ul> 
-    <h1>Movie List</h1>
-{ movies.map(movie => (
-<Movie
-key={movie.id}
-title={movie.title}
-year={movie.year}
-synopsis={movie.synopsis}
-/>
-)) }
-</ul>
+const movies = [
+  {
+    id: 1,
+    title: "The Shawshank Redemption",
+    year: 1994,
+    synopsis: "Two imprisoned men find redemption.",
+  },
+  {
+    id: 2,
+    title: "The Dark Knight",
+    year: 2008,
+    synopsis: "Batman fights the menace known as the Joker.",
+  },
+  {
+    id: 3,
+    title: "Interstellar",
+    year: 2014,
+    synopsis: "Explorers travel through a wormhole in space.",
+  },
+];
 
+function SortButton({ onClick, label }) {
+  return <button onClick={onClick}>{label}</button>;
+}
+
+export default function MoviesList() {
+  const [currentMovies, setCurrentMovies] = useState(movies);
+
+  const handleReverseMovies = () => {
+    let newMovies = [...currentMovies];
+    newMovies.reverse();
+    setCurrentMovies(newMovies);
+  };
+
+  const handleYearMovies = () => {
+    let newMovies = [...currentMovies];
+    newMovies.sort((a, b) => a.year - b.year);
+    setCurrentMovies(newMovies);
+  };
+
+  return (
+    <>
+      <h1>Movie List</h1>
+      <ul>
+        {currentMovies.map((movie) => (
+          <Movie
+            key={movie.id}
+            title={movie.title}
+            year={movie.year}
+            synopsis={movie.synopsis}
+          />
+        ))}
+      </ul>
+      <div className="MoviesList">
+        <SortButton onClick={handleReverseMovies} label="Reverse List" />
+        <SortButton onClick={handleYearMovies} label="Sort By Year" />
+      </div>
     </>
-    )
-    }
+  );
+}
