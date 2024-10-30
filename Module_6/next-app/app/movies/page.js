@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import { AddMovieForm } from "../components/AddMovie";
+
 
 function Movie({ title, year, synopsis }) {
   return (
@@ -38,6 +40,11 @@ function SortButton({ onClick, label }) {
 export default function MoviesList() {
   const [currentMovies, setCurrentMovies] = useState(movies);
 
+  const handleAddMovie = (newMovie) => {
+    newMovie.id = currentMovies.length + 1; // unreliable but succinct
+    setCurrentMovies([...currentMovies, newMovie])
+    }
+
   const handleReverseMovies = () => {
     let newMovies = [...currentMovies];
     newMovies.reverse();
@@ -66,6 +73,7 @@ export default function MoviesList() {
       <div className="MoviesList">
         <SortButton onClick={handleReverseMovies} label="Reverse List" />
         <SortButton onClick={handleYearMovies} label="Sort By Year" />
+        <div><AddMovieForm onAddMovie={handleAddMovie}/></div>
       </div>
     </>
   );

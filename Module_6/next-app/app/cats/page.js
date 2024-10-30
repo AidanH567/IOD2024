@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react"; // Import useState for state management
-
+import { AddCatForm } from "../components/AddCatForm";
 function Cat({ id, name, latinName, image }) {
   return (
     <li>
@@ -76,6 +76,9 @@ export default function BigCats() {
     );
     setCurrentCats(sortedCats);
   };
+  const handleAddCat = (newCat) => {
+    setCurrentCats((prevCats) => [...prevCats, newCat]);
+  };
 
   const handleReverseCats = () => {
     const reversedCats = [...currentCats].reverse();
@@ -100,6 +103,7 @@ export default function BigCats() {
       <button onClick={handleReverseCats}>Reverse Order</button>
       <button onClick={handleLatinCats}>Show Panthera</button>
       <button onClick={handleResetCats}>Reset List</button>
+      <AddCatForm onAddCat={handleAddCat} />
       <ul>
         {currentCats.map((cat) => (
           <Cat

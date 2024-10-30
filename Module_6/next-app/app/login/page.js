@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { AddMovieForm } from "../components/AddMovie";
+import { MoviesList } from "../components/MoveList";
 
 function LoginForm() {
   const [userEmail, setUserEmail] = useState("");
