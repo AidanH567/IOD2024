@@ -3,8 +3,13 @@ import { useState, useEffect } from "react";
 export function Clock() {
 const [date, setDate] = useState(new Date());
 useEffect(() => { // first arg is usually an arrow function
-setInterval(() => tick(), 1000);
+let clockInterval = setInterval(() => tick(), 1000);
 console.log('Clock component mounted');
+return () => {
+    console.log('Clock component unmounted');
+    clearInterval(clockInterval);
+    }
+
 }, []); // second arg is an array of dependencies
 const tick = () => {
 setDate(new Date());
@@ -17,25 +22,11 @@ return (
 </div>
 );
 }
+
 // ++ Try removing the dependency array from useEffect
 // and notice the difference in ‘tick’ log messages
 // ++ Why do the console messages appear double?
-export function ClockDisplay() {
 
-    const [showClock, setShowClock] = useState(false);
-    
-    const toggleClock = () => {
-    setShowClock(!showClock);
-    }
-    
-    return (
-    <div className="ClockDisplay componentBox">
-    {showClock && <Clock />}
-    <button onClick={toggleClock}>Toggle Clock</button>
-    </div>
-    )
-    }
-    export default ClockDisplay;
     // ++ Add both components into Clock.jsx and render
     // <ClockDisplay /> from App.jsx
     
