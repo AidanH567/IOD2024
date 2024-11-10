@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-export function AddCatForm({ onAddCat }) {
+export default function AddCatForm({ onAddCat }) {
   const [name, setName] = useState("");
   const [latinName, setLatinName] = useState("");
   const [image, setImage] = useState("");

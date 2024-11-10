@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { BigCats } from "../components/BigCats";
+import BigCats from "../components/BigCats";
 import { useState } from "react";
 
 export default function Page() {

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import SingleCat from "./SingleCats";
-import { AddCatForm } from "./AddCatForm";
+import AddCatForm from "./AddCatForm";
 
-export function BigCats() {
+export default function BigCats() {
   const initialCats = [
     {
       id: 1,
