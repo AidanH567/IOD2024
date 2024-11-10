@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const currencies = ['USD', 'AUD', 'NZD', 'GBP', 'EUR', 'SGD'];
 
-function BitcoinRates() {
+export function BitcoinRates() {
   const [currency, setCurrency] = useState(currencies[0]);
   const [price, setPrice] = useState(null);
 
