@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { EmojiContext } from '../context/EmojiContext';
 
 const currencies = ['USD', 'AUD', 'NZD', 'GBP', 'EUR', 'SGD'];
 
 export function BitcoinRates() {
   const [currency, setCurrency] = useState(currencies[0]);
   const [price, setPrice] = useState(null);
+  const { mood, moodToEmoji } = useContext(EmojiContext);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -44,6 +46,7 @@ export function BitcoinRates() {
         </select>
       </label>
       <p>Current Bitcoin Price: {price ? `${price} ${currency}` : 'Loading...'}</p>
+      <p>Current Mood: {moodToEmoji[mood]}</p>
     </div>
   );
 }
