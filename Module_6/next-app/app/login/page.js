@@ -24,7 +24,7 @@ function LoginForm() {
       setAttemptCount((prevCount) => prevCount + 1);
     } else {
       setSubmitResult("Successful login.");
-      setAttemptCount(0); 
+      setAttemptCount(0);
     }
   };
 
@@ -58,7 +58,9 @@ function LoginForm() {
           <p>{submitResult}</p>
         </form>
       ) : (
-        <p style={{ color: "red" }}>Maximum login attempts reached. Please try again later.</p>
+        <p style={{ color: "red" }}>
+          Maximum login attempts reached. Please try again later.
+        </p>
       )}
     </div>
   );
