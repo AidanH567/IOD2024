@@ -8,26 +8,20 @@ import { Clock } from "../components/clock";
 import ClockDisplay from "../components/ClockDsiplay";
 import { ActivityFinder } from "../components/ActivityFinder";
 import BitcoinRates from "../components/BitcoinRates";
-
+ç;
 import ReducerCounter from "../components/ReducerCounter";
-import { UserProvider } from "../Context/UserContext";
-import { LoginForm } from "../components/LoginForm";
-import PostListReducer from "../components/PostListReducer";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <UserProvider>
-        <ClockDisplay></ClockDisplay>
-        <ActivityFinder></ActivityFinder>
-        <BitcoinRates></BitcoinRates>
+      <ClockDisplay></ClockDisplay>
+      <ActivityFinder></ActivityFinder>
+      <BitcoinRates></BitcoinRates>
 
-        <LoginForm></LoginForm>
-        <VideoPlayer></VideoPlayer>
-        <ReducerCounter></ReducerCounter>
-      </UserProvider>
+      <VideoPlayer></VideoPlayer>
+      <ReducerCounter></ReducerCounter>
     </>
   );
 }

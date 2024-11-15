@@ -1,18 +1,24 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Clock } from "./clock";
-export function ClockDisplay() {
+import { MyThemeContext } from "../context/Themes"; 
 
+export function ClockDisplay() {
     const [showClock, setShowClock] = useState(false);
-    
+    const { theme } = useContext(MyThemeContext); 
+
     const toggleClock = () => {
-    setShowClock(!showClock);
-    }
+        setShowClock(!showClock);
+    };
     
     return (
-    <div className="ClockDisplay componentBox">
-    {showClock && <Clock />}
-    <button onClick={toggleClock}>Toggle Clock</button>
-    </div>
-    )
-    }
-    export default ClockDisplay;
+        <div 
+            className="ClockDisplay componentBox" 
+            style={{ background: theme.background, color: theme.foreground }}
+        >
+            {showClock && <Clock />}
+            <button onClick={toggleClock}>Toggle Clock</button>
+        </div>
+    );
+}
+
+export default ClockDisplay;
