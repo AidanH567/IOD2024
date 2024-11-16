@@ -45,9 +45,6 @@ export default function NavBar() {
           </NavLink>
         </li>
       </ul>
-      <li>
-        <NavLink to="/posts">Posts</NavLink>
-      </li>
     </nav>
   );
 }

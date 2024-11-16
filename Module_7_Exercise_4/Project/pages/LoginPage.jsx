@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function AboutPage() {
+export default function LoginPage() {
   // Save in pages/AboutPage.jsx
   return (
     <div className="About">
