@@ -7,6 +7,8 @@ import BasicGrid from "../components/BasicGrid";
 import CustomCard from "../components/CustomCard";
 import MUIForm from "../components/MUIForm";
 import { Dialog } from "@mui/material";
+import Emoji from "../components/Emoji";
+import BitcoinRates from "../components/BitcoinRates";
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
       <Dialog text="assda" />
       <MyThemeProvider>
         <BasicGrid />
+        <Emoji />
         <NavBar />
+        <BitcoinRates />
         <AppRoutes />
         <CustomCard />
         <MUIForm />

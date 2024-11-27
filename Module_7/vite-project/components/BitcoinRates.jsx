@@ -6,7 +6,7 @@ const currencies = ["USD", "AUD", "NZD", "GBP", "EUR", "SGD"];
 export function BitcoinRates() {
   const [currency, setCurrency] = useState(currencies[0]);
   const [price, setPrice] = useState(null);
-  const { mood, moodToEmoji } = useContext(EmojiContext);
+  const { mood, moodToEmoji, toggleMood } = useContext(EmojiContext);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -55,6 +55,7 @@ export function BitcoinRates() {
         Current Bitcoin Price: {price ? `${price} ${currency}` : "Loading..."}
       </p>
       <p>Current Mood: {moodToEmoji[mood]}</p>
+      <button onClick={toggleMood}>Change Mood</button>
     </div>
   );
 }
