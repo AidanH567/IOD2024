@@ -10,10 +10,3 @@ router.post("/create", (req, res) => {
   Controllers.userController.createUser(req.body, res);
 });
 module.exports = router;
-
-router.put("/:id", (req, res) => {
-  Controllers.userController.updateUser(req, res);
-});
-router.delete("/:id", (req, res) => {
-  Controllers.userController.deleteUser(req, res);
-});
