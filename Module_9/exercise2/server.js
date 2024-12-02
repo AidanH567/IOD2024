@@ -5,8 +5,7 @@ require("dotenv").config();
 let userRoutes = require("./routes/userRoutes");
 app.use("/api/users", userRoutes);
 
-// parse requests of content-type -
-application / json;
+// parse requests of content-type -application / json;
 app.use(express.json());
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to myMongoDB application." });
