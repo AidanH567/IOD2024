@@ -14,7 +14,7 @@ const createUser = (data, res) => {
   console.log(data);
   new Models.User(data)
     .save()
-    .then((data) => res.send({ result: 200, data: data }))
+    .then((data) => res.send({ result: 200, data: "success" }))
     .catch((err) => {
       console.log(err);
       res.send({ result: 500, error: err.message });
